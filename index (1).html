@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>medical assistance</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        *{
+            padding:0;
+        }
+        body{
+            width:100vw;
+        }
+        p{
+            font-size: 1.8rem;
+            font-family: cursive;
+            margin: 8px 0;
+        }
+        main{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container{
+            width:50%;
+            min-height:30vh;
+            display: flex;
+            flex-direction: column;
+        }
+        #heading{
+            font-size: 2rem;
+        }
+        #symptoms{
+            width:200px;
+            height: 40px;
+            font-size: 1.3rem;
+        }
+        label{
+            display: block;
+            font-size: 1.3rem;
+        }
+        .a{
+            font-size: 1.2rem;
+        }
+        #submit{
+            width:100px;
+            height: 40px;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            align-self: center;
+            margin: 20px 0;
+        }
+        #medicine,#care{
+            font-family: monospace;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        
+        <h1 id="heading">Online medical Assistance</h1>
+        <div class="container">
+            <p id="symp-p">select down your symptoms</p>
+            <div id="drop-box">
+                <select id="symptoms">
+                    <option value="cold">cold</option>
+                    <option value="cough">cough</option>
+                    <option value="headache">headache</option>
+                    <option value="fever">fever</option>
+                    <option value="bodypains">bodypains</option>
+                    <option value="vomtings">vomtings</option>
+                    <option value="skin">skin irretation</option>
+                    <option value="dehydration">dehydration</option>
+                    <option value="stomachpain">stomach pain</option>
+                    <option value="burns">burns</option>
+                    <option value="throat">throat pain</option>
+                    <option value="acidity">acidity</option>
+                </select>
+            </div>
+            <div id="check-box">
+                <p>select the severity</p>
+                <label for="low">
+                    <input type="radio" id="low" value="low" name="severity" class="a">low
+                </label>
+                <label for="medium">
+                    <input type="radio" id="medium" value="medium" name="severity" class="a">medium
+                </label>
+                <label for="high">
+                    <input type="radio" id="high" value="high" name="severity" class="a">high
+                </label>
+            </div>
+           <button id="submit" >diagnoise</button>
+            <div class="diagnosis">
+                <p id="medicine">medicine:</p>
+                <p id="care">care</p>
+
+            </div>
+        </div>
+    </main>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        let symptoms=document.querySelector("#symptoms");
+        let btn=document.querySelector("#submit");
+        let medicine=document.querySelector("#medicine");
+        let care=document.querySelector("#care");
+        btn.addEventListener("click",()=>{
+            let symptom=symptoms.value;
+            console.log(diagnosis[symptom]);
+            medicine.textContent=`medicine : ${diagnosis[symptom][0]}`
+            care.textContent=`care : ${diagnosis[symptom][1]}`
+            // window.location.href="page2.html";
+        })
+        const diagnosis={
+            cold:["amoxil-500","take luke warm water"],
+            fever:["paracetmol","take plenty of bed rest"],
+            cough:["strepsils","continuosly swallow these tablets"],
+            headache:["saridon","avoid noisy things and be in quiet place"],
+            bodypains:["neomycin","avoid physical activities and take bed rest"],
+            vomtings:["amoxicillin ","Drink plenty of clear fluids or oral rehydration solution to replace lost fluids"],
+            skin:["peritop soap","donot itch rapidly and not go into sun"],
+            dehydration:["ors","drink plenty of fluids and be in cool place"],
+            stomachpain:["eno","take little foods"],
+            burns:["burnol","protect the burn area from sun"],
+            acidity:["ENO","drink lots of water"]
+
+        }
+
+
+    </script>
+</body>
+</html>
